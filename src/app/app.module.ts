@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HelloComponent } from './hello.component';
+import { GoodbyeComponent } from './goodbye.component';
+import { CounterComponent } from './counter.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloComponent,
+    GoodbyeComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

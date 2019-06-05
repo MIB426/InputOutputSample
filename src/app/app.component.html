@@ -1,21 +1,34 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="info">
+  <p><font color='red'> @Input </font>的目的是確認資料綁定 input 特性 (properties)是可以在改變時被追蹤的。基本上來說，它是 Angular 將 DOM 藉由特性綁定 (property bindings) 直接在組件注入數值的方法。</p>
 
+
+</div>
+<hr>
+<div class="info">
+  <p><font color='red'> @Input </font> 是由上到下的概念，就是 Parent 給定甚麼，Child 就會有甚麼。</p>
+  <p><font color='red'> @Output </font> 不一樣，是由下影響上，意思就是 Child 先有變化，進而改變了 Parent。
+    這個範例就是由 Child 的按鈕執行 Child 的函數，進而回傳給 Parent，Parent 的值才改變。</p>
+
+</div>
+
+
+<h1>Sample 1</h1>
+<div>
+  <app-hello [myName]="name"></app-hello>
+  <app-hello myName="Other World"></app-hello>
+  <app-goodbye [myName]="name"></app-goodbye>
+  <app-goodbye myName="Your World"></app-goodbye>
+</div>
+
+<h1>Sample 2</h1>
+<div>
+  <app-counter [(count)]="number1">Child Number 1:</app-counter>
+  <app-counter [count]="number2" (countChange)="number2=$event">Child Number 2:</app-counter>
+  <app-counter [count]="number3" (countChange)="onCountChanged($event)">Child Number 3:</app-counter>
+  <hr>
+  <p>Parent Number1: {{number1}}</p>
+  <p>Parent Number2: {{number2}}</p>
+  <p>Parent Number3: {{number3}}</p>
+</div>
 <router-outlet></router-outlet>
